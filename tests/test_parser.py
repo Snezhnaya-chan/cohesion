@@ -17,7 +17,7 @@ class TestParser(unittest.TestCase):
         a = 5
         """)
 
-        result = parser.get_ast_node_from_string(python_string)
+        result = parser.get_ast_node_from_str_or_bytes(python_string)
         expected = ast.Module
 
         self.assertIsInstance(result, expected)
@@ -28,7 +28,7 @@ class TestParser(unittest.TestCase):
         """)
 
         with self.assertRaises(SyntaxError):
-            parser.get_ast_node_from_string(python_string)
+            parser.get_ast_node_from_str_or_bytes(python_string)
 
     def test_get_module_classes_empty(self):
         python_string = textwrap.dedent("""
@@ -36,7 +36,7 @@ class TestParser(unittest.TestCase):
             print("Hi")
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         result = parser.get_module_classes(node)
 
         self.assertEmpty(result)
@@ -47,7 +47,7 @@ class TestParser(unittest.TestCase):
             pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         classes = parser.get_module_classes(node)
         result = [cls.name for cls in classes]
         expected = ["Cls"]
@@ -62,7 +62,7 @@ class TestParser(unittest.TestCase):
             pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         classes = parser.get_module_classes(node)
         result = [cls.name for cls in classes]
         expected = ["Cls1", "Cls2"]
@@ -75,7 +75,7 @@ class TestParser(unittest.TestCase):
             pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         result = [
             method
             for cls in parser.get_module_classes(node)
@@ -91,7 +91,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -114,7 +114,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -134,7 +134,7 @@ class TestParser(unittest.TestCase):
                 print("Hi")
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -153,7 +153,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -171,7 +171,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -191,7 +191,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -210,7 +210,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -229,7 +229,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -248,7 +248,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -267,7 +267,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -286,7 +286,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -305,7 +305,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -324,7 +324,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -342,7 +342,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -362,7 +362,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -381,7 +381,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -399,7 +399,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -417,7 +417,7 @@ class TestParser(unittest.TestCase):
                 self.attr = 5
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         instance_variables = parser.get_instance_variables(node)
         result = [instance_variable.attr for instance_variable in instance_variables]
         expected = ["attr"]
@@ -432,7 +432,7 @@ class TestParser(unittest.TestCase):
                 self.attr2 = 6
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         instance_variables = parser.get_instance_variables(node)
         result = [instance_variable.attr for instance_variable in instance_variables]
         expected = ["attr1", "attr2"]
@@ -446,7 +446,7 @@ class TestParser(unittest.TestCase):
                 self.attr1 = self.attr2 = 5
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         instance_variables = parser.get_instance_variables(node)
         result = [instance_variable.attr for instance_variable in instance_variables]
         expected = ["attr1", "attr2"]
@@ -459,7 +459,7 @@ class TestParser(unittest.TestCase):
             attr = 5
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         instance_variables = parser.get_instance_variables(node)
         result = [instance_variable.attr for instance_variable in instance_variables]
 
@@ -471,7 +471,7 @@ class TestParser(unittest.TestCase):
             attr = 5
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         classes = parser.get_module_classes(node)
         class_variables = [
             class_variable
@@ -489,7 +489,7 @@ class TestParser(unittest.TestCase):
             attr1 = attr2 = 5
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         classes = parser.get_module_classes(node)
         class_variables = [
             class_variable
@@ -508,7 +508,7 @@ class TestParser(unittest.TestCase):
                 self.attr = 5
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         classes = parser.get_module_classes(node)
         class_variables = [
             class_variable
@@ -527,7 +527,7 @@ class TestParser(unittest.TestCase):
                 self.attr2 = 6
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         classes = parser.get_module_classes(node)
         result = [
             name
@@ -545,7 +545,7 @@ class TestParser(unittest.TestCase):
                 self.attr = 6
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         classes = parser.get_module_classes(node)
         result = [
             name
@@ -564,7 +564,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         classes = parser.get_module_classes(node)
         result = [
             name
@@ -583,7 +583,7 @@ class TestParser(unittest.TestCase):
                 pass
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         classes = parser.get_module_classes(node)
         result = [
             name
@@ -603,7 +603,7 @@ class TestParser(unittest.TestCase):
                 self.attr2 = 6
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         class_methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -629,7 +629,7 @@ class TestParser(unittest.TestCase):
                 self.attr2 = self.attr1
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         class_methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -653,7 +653,7 @@ class TestParser(unittest.TestCase):
                 self.attr1 = 5
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         class_methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -677,7 +677,7 @@ class TestParser(unittest.TestCase):
                 otherclass.attr2 = 6
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         class_methods = [
             method
             for cls in parser.get_module_classes(node)
@@ -711,7 +711,7 @@ class TestParser(unittest.TestCase):
         c.f(False)
         """)
 
-        node = parser.get_ast_node_from_string(python_string)
+        node = parser.get_ast_node_from_str_or_bytes(python_string)
         classes = parser.get_module_classes(node)
         result = [
             name

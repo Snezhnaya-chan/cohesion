@@ -36,7 +36,7 @@ class Module(object):
 
     @classmethod
     def from_string(cls, python_string):
-        module_ast_node = parser.get_ast_node_from_string(python_string)
+        module_ast_node = parser.get_ast_node_from_str_or_bytes(python_string)
 
         return cls(module_ast_node)
 

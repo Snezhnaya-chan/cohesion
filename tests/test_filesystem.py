@@ -24,7 +24,7 @@ class TestFilesystem(fake_filesystem_unittest.TestCase):
         contents = textwrap.dedent("""
         class Cls(object):
             pass
-        """)
+        """).encode("utf-8")
 
         self.fs.create_file(
             filename,

@@ -15,7 +15,7 @@ class TestFlake8Extension(unittest.TestCase):
     def test_flake8_extension_empty(self):
         python_string = textwrap.dedent("")
 
-        ast_node = parser.get_ast_node_from_string(python_string)
+        ast_node = parser.get_ast_node_from_str_or_bytes(python_string)
         checker = flake8_extension.CohesionChecker(ast_node, "unused")
         checker.cohesion_below = 0.0
 
@@ -29,7 +29,7 @@ class TestFlake8Extension(unittest.TestCase):
             pass
         """)
 
-        ast_node = parser.get_ast_node_from_string(python_string)
+        ast_node = parser.get_ast_node_from_str_or_bytes(python_string)
         checker = flake8_extension.CohesionChecker(ast_node, "unused")
         checker.cohesion_below = 0.0
 
@@ -52,7 +52,7 @@ class TestFlake8Extension(unittest.TestCase):
                 self.variable = 'foo'
         """)
 
-        ast_node = parser.get_ast_node_from_string(python_string)
+        ast_node = parser.get_ast_node_from_str_or_bytes(python_string)
         checker = flake8_extension.CohesionChecker(ast_node, "unused")
         checker.cohesion_below = 50.0
 
@@ -69,7 +69,7 @@ class TestFlake8Extension(unittest.TestCase):
                 self.variable2 = 'baz'
         """)
 
-        ast_node = parser.get_ast_node_from_string(python_string)
+        ast_node = parser.get_ast_node_from_str_or_bytes(python_string)
         checker = flake8_extension.CohesionChecker(ast_node, "unused")
         checker.cohesion_below = 75.0
 
@@ -92,7 +92,7 @@ class TestFlake8Extension(unittest.TestCase):
                 self.variable = 'foo'
         """)
 
-        ast_node = parser.get_ast_node_from_string(python_string)
+        ast_node = parser.get_ast_node_from_str_or_bytes(python_string)
         checker = flake8_extension.CohesionChecker(ast_node, "unused")
         checker.cohesion_below = str(0.0)
 

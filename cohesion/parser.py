@@ -162,8 +162,8 @@ def get_module_classes(node):
     ]
 
 
-def get_ast_node_from_string(string):
+def get_ast_node_from_str_or_bytes(source):
     """
     Return an AST node from a string
     """
-    return ast.parse(string)
+    return ast.parse(source)
